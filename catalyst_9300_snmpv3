@@ -6,4 +6,4 @@ $LWUSER = {'username','Auth'='AuthPassword-ULD only','Priv'='PrivPassword-ULD on
 snmp ifmib ifindex persist
 snmp-server view LeewardSNMPv3RO iso included
 snmp-server group {{GroupName}} v3 priv read LeewardSNMPv3RO
-snmp-server user {{LWUSER}} {{GroupName}} auth sha {{LWUSER.Auth}} priv aes 123 {{LWUSER.Priv}}
+snmp-server user {{LWUSER}} {{GroupName}} v3 auth sha {{LWUSER.Auth}} priv aes 128 {{LWUSER.Priv}}
