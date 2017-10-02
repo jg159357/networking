@@ -1,0 +1,9 @@
+$GroupName == Leeward
+
+## use Upper case, Lower case, decimal only in SNMP v3 Password. Tested up to 20char on cisco 9300 ##
+$LWUSER = {'username','Auth'='AuthPassword-ULD only','Priv'='PrivPassword-ULD only'}
+
+snmp ifmib ifindex persist
+snmp-server view LeewardSNMPv3RO iso included
+snmp-server group {{GroupName}} v3 priv read LeewardSNMPv3RO
+snmp-server user {{LWUSER}} {{GroupName}} auth sha {{LWUSER.Auth}} priv aes 123 {{LWUSER.Priv}}
