@@ -1,0 +1,13 @@
+vrf definition Leeward-MGMT
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+interface Vlan2952
+ vrf forwarding Leeward-MGMT
+ ip address 10.41.228.242 255.255.254.0
+!
+ ip route vrf Leeward-MGMT 192.168.0.0 255.255.252.0 10.41.229.254
